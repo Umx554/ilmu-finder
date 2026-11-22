@@ -1,1 +1,469 @@
-{}
+{
+ "https://allconferencealert.com/malaysia/islamic-studies": {
+  "events": [],
+  "hash": "06977934164ad4ff",
+  "ts": "2026-11-22"
+ },
+ "https://bnm.gov.my": {
+  "events": [],
+  "hash": "d43bbc711f9e1fd0",
+  "ts": "2026-11-22"
+ },
+ "https://ejournal.uit-lirboyo.ac.id/index.php/mujalasat/article/view/8410": {
+  "events": [],
+  "hash": "87646fa3f79d5960",
+  "ts": "2026-11-22"
+ },
+ "https://en.wikipedia.org/wiki/December_11": {
+  "events": [],
+  "hash": "961d703f4c139bb3",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/darularqam.sg/posts/symphony-of-faith-2026convert-stories-tools-to-grow-as-a-muslim-and-patience-for/1568820861952534": {
+  "events": [],
+  "hash": "284aace2ac282a4d",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/groups/1046576693230474/posts/1844661160088686": {
+  "events": [
+   {
+    "address": null,
+    "city": null,
+    "confidence": "low",
+    "date_evidence": "Date: 9-10 December 2026",
+    "end_date": "2026-12-10",
+    "end_time": null,
+    "event_type": "daurah",
+    "in_klang_valley": null,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": null,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-12-09",
+    "start_time": null,
+    "state": null,
+    "time_note": null,
+    "title": "Daurah Anak Soleh 2026",
+    "topic": "teaching kids essential life skills and practical Islamic practices",
+    "venue": null
+   }
+  ],
+  "hash": "570ab597cb0173e8",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/groups/703366018095804/posts/1427808585651540": {
+  "events": [
+   {
+    "address": null,
+    "city": null,
+    "confidence": "medium",
+    "date_evidence": "Date: 9-10 December 2026",
+    "end_date": "2026-12-10",
+    "end_time": null,
+    "event_type": "daurah",
+    "in_klang_valley": null,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": "Malay",
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-12-09",
+    "start_time": null,
+    "state": null,
+    "time_note": null,
+    "title": "Daurah Anak Soleh 2026",
+    "topic": "Islamic and character‑building camp for children aged 6–15",
+    "venue": "Masjid Al-Husna"
+   }
+  ],
+  "hash": "5caea702fdcd8ea3",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/hisartravelsg/videos/umrah-manasik-1-november-2026-alhamdulillah-our-umrah-manasik-session-was-succes/1409956867970798": {
+  "events": [],
+  "hash": "b5682f542cc22d7a",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/insanqurani.ibs/videos/coming-soon-psb-dayahinsanqurani/1434955411949190": {
+  "events": [],
+  "hash": "8857e0c9706eae14",
+  "ts": "2026-11-22"
+ },
+ "https://facebook.com/institutkefahamanislammalaysia/posts/-jom-sertai-konvensyen-institusi-amal-islam-2026-bagaimana-kita-boleh-memperkuku/1595251602631235": {
+  "events": [
+   {
+    "address": null,
+    "city": "Kelana Jaya",
+    "confidence": "high",
+    "date_evidence": "Tarikh: 19 November 2026 (Khamis)",
+    "end_date": "2026-11-19",
+    "end_time": "17:00",
+    "event_type": "Conference",
+    "in_klang_valley": true,
+    "is_free": false,
+    "is_islamic": true,
+    "is_online": false,
+    "language": "Malay",
+    "organizer": "Institut Kefahaman Islam Malaysia",
+    "price_text": "Early Bird RM100 sahaja! (100 peserta terawal) Pelajar RM70 sahaja!",
+    "registration_url": "https://program.ikim.gov.my/v2/frontend/course-info/91",
+    "speakers": [],
+    "start_date": "2026-11-19",
+    "start_time": "08:00",
+    "state": "Selangor",
+    "time_note": null,
+    "title": "JOM SERTAI KONVENSYEN INSTITUSI AMAL ISLAM 2026",
+    "topic": "Pengukuhan institusi amal Islam",
+    "venue": "Auditorium ANGKASA"
+   }
+  ],
+  "hash": "5128a4e459064fad",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/p/DRyYmSJj61d": {
+  "events": [
+   {
+    "address": null,
+    "city": "Kuala Lumpur",
+    "confidence": "medium",
+    "date_evidence": "14 - 15 November 2026",
+    "end_date": "2026-11-15",
+    "end_time": null,
+    "event_type": "conference",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [
+     "Dr. Muhammad Salah"
+    ],
+    "start_date": "2026-11-14",
+    "start_time": null,
+    "state": "Selangor",
+    "time_note": null,
+    "title": "The Straight Path Convention 2026: INFLUENCE! Quran and Sunnah",
+    "topic": "Quran and Sunnah",
+    "venue": null
+   }
+  ],
+  "hash": "5b4c8b5cee87c8b9",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/p/Dcxcvdgv-hs?hl=en": {
+  "events": [
+   {
+    "address": null,
+    "city": "Kuala Lumpur",
+    "confidence": "medium",
+    "date_evidence": "25–26 November 2026",
+    "end_date": "2026-11-26",
+    "end_time": null,
+    "event_type": "forum",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-25",
+    "start_time": null,
+    "state": "Selangor",
+    "time_note": null,
+    "title": "21st International Shariah Scholars Forum in Islamic Finance (ISSF 2026)",
+    "topic": "Shariah scholars forum in Islamic finance",
+    "venue": "Imperial Lexis Kuala Lumpur"
+   }
+  ],
+  "hash": "0e9951fdc8c3416f",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/p/DfPTvMhKLV7": {
+  "events": [
+   {
+    "address": null,
+    "city": null,
+    "confidence": "medium",
+    "date_evidence": "Saturday, 21 November 2026",
+    "end_date": "2026-11-21",
+    "end_time": "13:00",
+    "event_type": "talk",
+    "in_klang_valley": null,
+    "is_free": true,
+    "is_islamic": true,
+    "is_online": null,
+    "language": null,
+    "organizer": null,
+    "price_text": "FREE",
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-21",
+    "start_time": "10:30",
+    "state": null,
+    "time_note": null,
+    "title": "FREE PARENTING TALK⚠️⚠️⚠️ Does your child know why ...",
+    "topic": "Guidance for Muslim parents on raising children",
+    "venue": null
+   }
+  ],
+  "hash": "c7a9588f6ab790e3",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/p/DgBky7cj6-Q": {
+  "events": [
+   {
+    "address": null,
+    "city": "Kuala Lumpur",
+    "confidence": "medium",
+    "date_evidence": "25–26 November 2026",
+    "end_date": "2026-11-26",
+    "end_time": null,
+    "event_type": "conference",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": "English",
+    "organizer": "ISSF",
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-25",
+    "start_time": null,
+    "state": "Selangor",
+    "time_note": null,
+    "title": "21st International Shariah Scholars Forum in Islamic Finance (ISSF 2026)",
+    "topic": "Islamic finance and shariah scholarship",
+    "venue": "Imperial Lexis Kuala"
+   }
+  ],
+  "hash": "cf468482868f56f6",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/reel/DV6KC_SEYMC?hl=am-et": {
+  "events": [
+   {
+    "address": null,
+    "city": "Putrajaya",
+    "confidence": "medium",
+    "date_evidence": "30 November – 3 December 2026",
+    "end_date": "2026-12-03",
+    "end_time": null,
+    "event_type": "conference",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-30",
+    "start_time": null,
+    "state": null,
+    "time_note": null,
+    "title": "World Muslim Summit",
+    "topic": "Islamic conference gathering delegates",
+    "venue": "Putrajaya Marriott Hotel"
+   }
+  ],
+  "hash": "4f65abd275e680bc",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/reel/DaMi4M_xJAl": {
+  "events": [],
+  "hash": "f2bfbf3f9ee730be",
+  "ts": "2026-11-22"
+ },
+ "https://instagram.com/reel/DgBdPmjOKke": {
+  "events": [
+   {
+    "address": null,
+    "city": null,
+    "confidence": "medium",
+    "date_evidence": "Date: 9-10 December 2026",
+    "end_date": "2026-12-10",
+    "end_time": null,
+    "event_type": "camp",
+    "in_klang_valley": null,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-12-09",
+    "start_time": null,
+    "state": null,
+    "time_note": null,
+    "title": "Daurah Anak Soleh 2026",
+    "topic": "Islamic and character-building camp for children aged 6–15",
+    "venue": "Masjid Al-Husna"
+   }
+  ],
+  "hash": "7eaa985ade5c7234",
+  "ts": "2026-11-22"
+ },
+ "https://kasi.asia/events": {
+  "events": [
+   {
+    "address": "Jl. Jenderal Sudirman No.Kav 18 - 20, RT.10/RW.11, Karet Tengsin, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10220",
+    "city": "Jakarta",
+    "confidence": "medium",
+    "date_evidence": "15 Dec 2026",
+    "end_date": "2026-12-15",
+    "end_time": null,
+    "event_type": "forum",
+    "in_klang_valley": false,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-12-15",
+    "start_time": null,
+    "state": null,
+    "time_note": null,
+    "title": "Global Muslim Business Forum 2026",
+    "topic": "Muslim business networking and development",
+    "venue": "Le Meridien Hotel Jakarta"
+   }
+  ],
+  "hash": "a21e1b45d983e05b",
+  "ts": "2026-11-22"
+ },
+ "https://kmeducationhub.de/international-conference-on-information-retrieval-and-knowledge-management-camp": {
+  "events": [],
+  "hash": "16fbd65eca872ad2",
+  "ts": "2026-11-22"
+ },
+ "https://mmis.s3.ap-southeast-1.amazonaws.com/pd/63590/2026708%20MIA%202027%20Budget%20Seminar.pdf": {
+  "events": [],
+  "hash": "be402bff823e6713",
+  "ts": "2026-11-22"
+ },
+ "https://selangor.gov.my/index.php/announcements/view/112": {
+  "events": [
+   {
+    "address": null,
+    "city": "Shah Alam",
+    "confidence": "high",
+    "date_evidence": "Tarikh: 10 - 12 November 2026",
+    "end_date": "2026-11-12",
+    "end_time": null,
+    "event_type": "conference",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": "Malay",
+    "organizer": "Majlis Agama Islam Selangor",
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-10",
+    "start_time": null,
+    "state": "Selangor",
+    "time_note": null,
+    "title": "Konvensyen Baitulmal Nusantara 2026",
+    "topic": "Memperkasa Amanah, Membangun Kekayaan, Memakmur Ummah",
+    "venue": "Hotel Concorde Shah Alam"
+   }
+  ],
+  "hash": "dbea5df70de47ebd",
+  "ts": "2026-11-22"
+ },
+ "https://selangor.gov.my/index.php/announcements/view/112?view_type=pop_out": {
+  "events": [
+   {
+    "address": null,
+    "city": "Shah Alam",
+    "confidence": "high",
+    "date_evidence": "Tarikh: 10 - 12 November 2026",
+    "end_date": "2026-11-12",
+    "end_time": null,
+    "event_type": "Convention",
+    "in_klang_valley": true,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": false,
+    "language": null,
+    "organizer": "Majlis Agama Islam Selangor",
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [],
+    "start_date": "2026-11-10",
+    "start_time": null,
+    "state": "Selangor",
+    "time_note": null,
+    "title": "Konvensyen Baitulmal Nusantara 2026",
+    "topic": "Memperkasa Amanah, Membangun Kekayaan, Memakmur Ummah",
+    "venue": "Hotel Concorde Shah Alam"
+   }
+  ],
+  "hash": "eb6860674981cb19",
+  "ts": "2026-11-22"
+ },
+ "https://threads.com/@pondokhabib/post/Df_UU-imeRo/jemputan-majlis-ilmu-program-pondok-turath-madani-yadim-menjemput-semua-untuk": {
+  "events": [
+   {
+    "address": null,
+    "city": null,
+    "confidence": "low",
+    "date_evidence": "Ahad, 22 November 2026",
+    "end_date": "2026-11-22",
+    "end_time": null,
+    "event_type": "daurah",
+    "in_klang_valley": null,
+    "is_free": null,
+    "is_islamic": true,
+    "is_online": null,
+    "language": null,
+    "organizer": null,
+    "price_text": null,
+    "registration_url": null,
+    "speakers": [
+     "Ustaz Mohd Zhafran bin Abd Karim"
+    ],
+    "start_date": "2026-11-22",
+    "start_time": null,
+    "state": null,
+    "time_note": "Masa",
+    "title": "Daurah Ilmu Siri 2",
+    "topic": "Ilmu Islam",
+    "venue": null
+   }
+  ],
+  "hash": "de85093b1a15549b",
+  "ts": "2026-11-22"
+ },
+ "https://umexpert.um.edu.my/aghazali.html": {
+  "events": [],
+  "hash": "066703463532a163",
+  "ts": "2026-11-22"
+ },
+ "https://utc.my/rencana/kalendar-islam-2026-malaysia-tarikh-penting-and-takwim-hijrah-1447-1448-h": {
+  "events": [],
+  "hash": "4032d90c0755e4fe",
+  "ts": "2026-11-22"
+ }
+}
