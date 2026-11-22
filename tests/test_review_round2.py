@@ -188,3 +188,23 @@ def test_retired_models_give_a_clear_message(client):
 def test_shipped_config_uses_current_groq_models():
     llm = load_config()["llm"]
     assert not any("llama-3" in m for m in (llm["model"], llm["fallback_model"]))   # retired Aug 2026
+
+
+def test_unclear_location_is_kept_and_marked():
+    """Live run 22 Nov 2026: 'Daurah Anak Soleh' at 'Masjid Al-Husna' (no town) was dropped."""
+    from agent import report
+    from agent.region import filter_region
+    base = {"is_online": False, "city": None, "address": None, "state": None, "ai_in_kv": None}
+    unclear = {**base, "venue": "Masjid Al-Husna"}
+    jakarta = {**base, "venue": "JCC", "city": "Jakarta", "ai_in_kv": False}
+    stats = {}
+    kept = filter_region([unclear, jakarta], stats)
+    assert kept == [unclear] and unclear["location_unclear"] is True
+    assert stats["region_drops"] == {"kept, location unclear": 1, "other state": 1}
+    ev, _ = coerce({"title": "Daurah Anak Soleh 2026", "is_islamic": True, "start_date": "2026-12-09",
+                    "venue": "Masjid Al-Husna", "date_evidence": "9 Disember 2026", "confidence": "medium",
+                    "source_url": "https://x.my/p", "source_text": "Daurah Anak Soleh 2026, 9 Disember 2026, Masjid Al-Husna"},
+                   TODAY, END)
+    ev.update(id="x", location_unclear=True)
+    text = report.card_text(ev, 1, load_config(), {})
+    assert "Masjid Al-Husna – <i>location unclear" in text

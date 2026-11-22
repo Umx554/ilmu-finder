@@ -122,7 +122,12 @@ def card_text(ev: dict, n: int, cfg: dict, seen: dict) -> str:
     if is_online_only(ev):
         lines.append("💻 Online" + (f" ({esc(ev['venue'])})" if ev.get("venue") else ""))
     else:
-        lines.append(f"📍 {esc(place_of(ev))}" if place_of(ev) else "📍 Venue not stated – check details")
+        if not place_of(ev):
+            lines.append("📍 Venue not stated – check details")
+        elif ev.get("location_unclear"):
+            lines.append(f"📍 {esc(place_of(ev))} – <i>location unclear, check it's in the Klang Valley</i>")
+        else:
+            lines.append(f"📍 {esc(place_of(ev))}")
     price = fmt_price(ev)
     lines.append(f"💰 {esc(price)}" if price else "💰 Price not stated")
     if ev["speakers"]:

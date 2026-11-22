@@ -73,8 +73,8 @@ llm:
   model: "openai/gpt-oss-120b"
   fallback_model: "openai/gpt-oss-20b"         # used if the main model's daily quota runs out or it is retired
   reasoning_effort: "low"                       # gpt-oss "thinks" first; low = fewer tokens. Remove for non-reasoning models
-  delay_seconds: 25                             # free tier ~8,000 tokens/minute: ~2 pages per minute
-  max_pages: 25                                 # pages the AI reads per run (25 x 25 s ~ 10 min)
+  delay_seconds: 15                             # free tier ~8,000 tokens/minute; a page uses ~1,500 -> ~4 pages/minute
+  max_pages: 40                                 # pages the AI reads per run (40 x 15 s ~ 10-12 min, ~60k tokens)
   max_chars_per_page: 5000                      # ~1,300 tokens per page
   max_output_tokens: 3000                       # reasoning + up to 10 events in the reply
   time_budget_minutes: 15                       # stop AI calls after this, so the digest is always sent

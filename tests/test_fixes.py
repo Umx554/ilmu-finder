@@ -350,9 +350,9 @@ def loc(**kw):
     (loc(is_online=True, venue="Online (Google Meet)"), True, "online"),
     (loc(is_online=True, venue="Siaran langsung YouTube"), True, "online"),
     (loc(venue="Wisma MAIWP, Jalan Pahang", ai_in_kv=True), True, "AI says Klang Valley"),
-    (loc(venue="Dewan Orang Ramai, Jalan Ipoh"), False, "unknown place"),          # not "other state"
+    (loc(venue="Dewan Orang Ramai, Jalan Ipoh"), True, "location unclear"),        # not "other state"
     (loc(venue="Masjid Al-Hidayah, Taman Melawati", state="Melaka?", ai_in_kv=True), True, "AI says Klang Valley"),
-    (loc(venue="Rumah Um Salamah"), False, "unknown place"),                        # 'um' alone is not UM
+    (loc(venue="Rumah Um Salamah"), True, "location unclear"),                      # 'um' alone is not UM
     (loc(venue="Dewan Tunku Canselor, Universiti Malaya"), True, "Klang Valley place named"),
     (loc(venue="Masjid Negeri", city="Ipoh", state="Perak"), False, "other state"),
 ])

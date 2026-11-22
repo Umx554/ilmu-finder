@@ -136,7 +136,7 @@ def test_region_filter_by_text():
     assert region.in_klang_valley(ev(venue="Masjid Al-Hidayah", ai_in_kv=True))[0]
     assert not region.in_klang_valley(ev(venue="Masjid Al-Hidayah", ai_in_kv=False))[0]
     assert region.in_klang_valley(ev(is_online=True))[0]
-    assert not region.in_klang_valley(ev(venue="Klinik Kluang"))[0]        # 'kl' must be a whole word
+    assert region.in_klang_valley(ev(venue="Klinik Kluang")) == (True, "location unclear")   # 'kl' is not KL
 
 
 def test_registration_link_grounded():

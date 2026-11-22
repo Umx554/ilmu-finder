@@ -62,7 +62,7 @@ The system works as a pipeline of specialist agents, each with one job. **Only o
 | 🧹 **Filter** | Drops junk and stale pages and trims long pages to the useful lines and registration links (saves tokens) | `prefilter.py` | No |
 | 📖 **Reader** | Reads each new page and extracts every event as structured JSON. Cached, so an unchanged page is never read twice | `extract.py`, `llm.py` | **Yes** |
 | ✅ **Verifier** | Checks the Reader's output against the page: date quote, speakers, price and registration link. Removes or flags anything it can't confirm, and merges duplicates | `validate.py` | No |
-| 📍 **Locator** | Keeps Klang Valley events and drops other states (place names + the Reader's judgment) | `region.py` | No |
+| 📍 **Locator** | Keeps Klang Valley events and drops other states (place names + the Reader's judgment). Venues it can't place are kept and marked "location unclear" | `region.py` | No |
 | 📰 **Editor + Courier** | Builds the overview and event cards with Register, Details, Calendar and Maps buttons, then delivers by Telegram and/or e-mail | `report.py`, `deliver.py` | No |
 | 🧠 **Learner** | Remembers which queries found events, rests queries that keep finding nothing, and suggests new sources | `learning.py` | No |
 | 🩺 **Doctor** (run by you) | Pre-flight check of keys, model names, Telegram chat and sources | `doctor.py` | No |
@@ -210,8 +210,8 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | `llm.fallback_model` (`LLM_FALLBACK_MODEL`) | openai/gpt-oss-20b | Used when the main model's daily quota runs out or it is retired |
 | `llm.reasoning_effort` | low | For reasoning models such as gpt-oss. Delete the line for other models |
 | `llm.base_url` (`LLM_BASE_URL`) | Groq | Any OpenAI-compatible endpoint |
-| `llm.delay_seconds` (`LLM_DELAY`) | 25 | Raise it if you get many 429s |
-| `llm.max_pages` (`MAX_PAGES`) | 25 | New pages read by the AI per run |
+| `llm.delay_seconds` (`LLM_DELAY`) | 15 | Raise it if you get many 429s |
+| `llm.max_pages` (`MAX_PAGES`) | 40 | New pages read by the AI per run |
 | `llm.max_chars_per_page` (`MAX_CHARS_PER_PAGE`) | 6000 | The main lever on token use |
 | `llm.max_output_tokens` | 3000 | Room for up to 10 events per page |
 | `llm.time_budget_minutes` | 15 | Stops AI calls after this, so the digest always gets sent |
@@ -232,7 +232,7 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | Resource | Usage per weekly run | Free allowance (as reported Nov 2026) | Headroom |
 |---|---|---|---|
 | Tavily | 34 basic searches by default (cap 45) = 34 credits (≈148/month, at most ≈195) | 1,000 credits/month | About 5× |
-| Groq tokens (gpt-oss-120b) | ≤25 pages × ~3k = ≤75k per run, much less once the cache fills; paced at ~2 pages/minute | Reported free tier (Nov 2026): ~8k tokens/minute, ~200k/day, with an automatic fallback to gpt-oss-20b | OK |
+| Groq tokens (gpt-oss-120b) | ≤40 pages × ~1.5k (measured on the first live run) ≈ 60k per run, less once the cache fills; paced at ~4 pages/minute | Reported free tier (Nov 2026): ~8k tokens/minute, ~200k/day, with an automatic fallback to gpt-oss-20b | OK |
 | GitHub Actions | ~5–10 min (private repo) | 2,000 min/month on private repos | Large |
 | Telegram / Gmail | About 30 messages or 1 e-mail per week | Far below limits | OK |
 
@@ -256,7 +256,7 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | Many `rate limited, sleeping …` lines in the log | Raise `llm.delay_seconds` or lower `llm.max_pages` and `llm.max_chars_per_page` |
 | `daily quota hit on …; switching to …` in the log, or `AI limit reached (<model name>)` in the digest | Normal on the first run. The cache makes later runs cheaper. |
 | Events outside the Klang Valley | Add the town to `OTHER_STATES` in `agent/region.py` |
-| Good events dropped as "unknown place" | Add the area to `KV_PLACES` in `agent/region.py` |
+| Cards say "location unclear" | The page named a venue but no town, and the AI couldn't place it. Check the source. If it's a Klang Valley area that keeps appearing, add it to `KV_PLACES` in `agent/region.py`. |
 | GitHub e-mails you "Run failed", or no Telegram messages arrive. The log shows `Telegram send failed (400): … chat not found` / `The digest could not be delivered by any channel` | `TELEGRAM_CHAT_ID` is wrong, or you never sent your bot a message. If the log says the bot was blocked, unblock it and press Start. Run `python -m agent.doctor` |
 | No Register button | The page had no registration link (common for walk-in talks), or the AI's link failed the check |
 | E-mail fails with an auth error | Use a Gmail App Password, not your normal password |

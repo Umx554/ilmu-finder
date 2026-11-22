@@ -68,7 +68,9 @@ def in_klang_valley(ev: dict) -> tuple[bool, str]:
         return False, "AI says outside"
     if not blob:
         return True, "no location stated"      # kept, shown as "venue not stated"
-    return False, "unknown place"
+    # A venue that can't be placed (e.g. "Masjid Al-Husna" with no town): keep it, clearly marked,
+    # rather than hide a possibly local event. Events that clearly name another state are dropped above.
+    return True, "location unclear"
 
 
 def filter_region(events: list[dict], stats: dict) -> list[dict]:
@@ -76,6 +78,9 @@ def filter_region(events: list[dict], stats: dict) -> list[dict]:
     for ev in events:
         ok, why = in_klang_valley(ev)
         if ok:
+            ev["location_unclear"] = why == "location unclear"
+            if ev["location_unclear"]:
+                reasons["kept, location unclear"] = reasons.get("kept, location unclear", 0) + 1
             kept.append(ev)
         else:
             reasons[why] = reasons.get(why, 0) + 1
