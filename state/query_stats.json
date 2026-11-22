@@ -14,10 +14,10 @@
   "total_events": 0
  },
  "ceramah or kuliah or forum cheras": {
-  "consecutive_zero_runs": 0,
-  "last_run": null,
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-22",
   "last_yield_date": null,
-  "runs": 0,
+  "runs": 1,
   "total_events": 0
  },
  "ceramah or kuliah or forum cyberjaya": {
@@ -35,10 +35,10 @@
   "total_events": 0
  },
  "ceramah or kuliah or forum kajang": {
-  "consecutive_zero_runs": 0,
-  "last_run": null,
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-22",
   "last_yield_date": null,
-  "runs": 0,
+  "runs": 1,
   "total_events": 0
  },
  "ceramah or kuliah or forum klang": {
@@ -91,10 +91,10 @@
   "total_events": 1
  },
  "ikim seminar": {
-  "consecutive_zero_runs": 0,
-  "last_run": null,
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-22",
   "last_yield_date": null,
-  "runs": 0,
+  "runs": 1,
   "total_events": 0
  },
  "islamic conference kuala lumpur": {
@@ -113,24 +113,24 @@
  },
  "islamic summit malaysia kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar ampang": {
-  "consecutive_zero_runs": 0,
-  "last_run": null,
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-22",
   "last_yield_date": null,
-  "runs": 0,
+  "runs": 1,
   "total_events": 0
  },
  "islamic talk or seminar bangi": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar cheras": {
   "consecutive_zero_runs": 1,
@@ -141,38 +141,38 @@
  },
  "islamic talk or seminar cyberjaya": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar gombak": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar kajang": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar klang": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 2
  },
  "islamic talk or seminar kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar petaling jaya": {
   "consecutive_zero_runs": 1,
@@ -183,45 +183,45 @@
  },
  "islamic talk or seminar putrajaya": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "islamic talk or seminar shah alam": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 3
  },
  "islamic talk or seminar subang jaya": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 2
  },
  "konvensyen or multaqa or wacana islam kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 1
  },
  "masjid program ceramah kuala lumpur": {
-  "consecutive_zero_runs": 0,
-  "last_run": null,
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-22",
   "last_yield_date": null,
-  "runs": 0,
+  "runs": 1,
   "total_events": 0
  },
  "seminar islam selangor": {
   "consecutive_zero_runs": 0,
-  "last_run": null,
-  "last_yield_date": null,
-  "runs": 0,
-  "total_events": 0
+  "last_run": "2026-11-22",
+  "last_yield_date": "2026-11-22",
+  "runs": 1,
+  "total_events": 2
  },
  "site:eventbrite.com.my islamic kuala lumpur": {
   "consecutive_zero_runs": 1,
