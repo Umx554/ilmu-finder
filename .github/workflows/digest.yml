@@ -1,8 +1,10 @@
-name: Weekly events digest
+name: Ilmu Finder weekly digest
 
 on:
   schedule:
-    - cron: "0 0 * * 5"        # Friday 00:00 UTC = Friday 08:00 Malaysia time (may start a few minutes late)
+    # Friday 13:45 UTC = Friday 9:45 PM Malaysia time. A run takes ~5-15 min, so the digest arrives
+    # around 10 PM. (GitHub cron is UTC only and can start late at busy times; :45 is quieter than :00.)
+    - cron: "45 13 * * 5"
   workflow_dispatch:            # "Run workflow" button in the Actions tab
     inputs:
       no_send:
@@ -56,8 +58,8 @@ jobs:
       - name: Save memory (state/) back to the repo
         if: always()
         run: |
-          git config user.name "events-agent"
-          git config user.email "events-agent@users.noreply.github.com"
+          git config user.name "ilmu-finder-bot"
+          git config user.email "ilmu-finder-bot@users.noreply.github.com"
           git add state/
           git diff --cached --quiet && exit 0
           git commit -m "Update agent state [skip ci]"

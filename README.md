@@ -1,6 +1,6 @@
-# Klang Valley Islamic Events Agent: v2 guide
+# Ilmu Finder: Klang Valley Islamic events agent
 
-A free, scheduled agent. **Every Friday at 8 AM (Malaysia time)** it searches the web and your chosen Telegram channels for Islamic events in the Klang Valley over the next 30 days. It checks what the AI extracted against the source pages, then sends you:
+A free, scheduled agent. **Every Friday at about 10 PM (Malaysia time)** it searches the web and your chosen Telegram channels for Islamic events in the Klang Valley over the next 30 days. It checks what the AI extracted against the source pages, then sends you:
 
 1. **An overview message**: a numbered list of every event, in sections: "⭐ Watchlist speakers" (if you set any), "📌 This week", "🗓 Coming up" and "💻 Online". 📝 marks events with a registration link.
 2. **One card per event**, with tap-to-open buttons: **📝 Register**, **🔗 Details** (called "Details / how to join" when there is no registration link), **📅 Add to calendar** (Google Calendar), **🗺 Open in Maps**.
@@ -43,7 +43,7 @@ v1 was a sound design. These are the weaknesses I found, with the fix for each.
 **On the Gemini claim in v1.** The statement that "search grounding is not available on the free tier for Gemini 3, 2.5 Flash closed to new users" came from forum reports. I have not verified it, so treat it as unconfirmed. It doesn't matter for this design, which avoids depending on any single provider's search feature.
 
 **v2.1 changes (your requests):**
-- The schedule is now **Friday 08:00 MYT** (`0 0 * * 5`).
+- The schedule is now **Friday ~10 PM MYT** (`45 13 * * 5`: starts 9:45 PM, the digest arrives around 10 PM).
 - **Geolocation removed** (no Nominatim or OSRM). This does **not** reduce AI tokens, because that stage never used the AI. It makes runs simpler and faster. Klang Valley filtering is now done by text: the venue or city must name a Klang Valley place, or the AI must judge that the venue is in the Klang Valley. Venues naming another state are dropped.
 - **Event cards with Register, Details, Add-to-calendar and Maps buttons.** Registration links are checked against the page.
 - **Optional e-mail delivery.**
@@ -82,7 +82,7 @@ Direct sources / Telegram channels ───┴─► 1 Fetch ─► 2 Prefilter
 ## 3. Project files
 
 ```
-events-agent/
+ilmu-finder/
 ├── agent/
 │   ├── __init__.py
 │   ├── config.py        # loads config.yaml + env overrides, date window
@@ -103,7 +103,7 @@ events-agent/
 ├── state/               # committed by the workflow: AI cache, seen events, query_stats, source_stats
 ├── output/              # created by each run (digest.md, events.json, events.ics, stats.json); not committed
 ├── .github/workflows/
-│   ├── digest.yml       # every Friday 08:00 MYT
+│   ├── digest.yml       # every Friday ~10 PM MYT
 │   └── tests.yml        # runs the tests when code, tests or config change
 ├── config.yaml          # all settings you're meant to edit
 ├── requirements.txt / requirements-dev.txt
@@ -125,7 +125,7 @@ events-agent/
 ### Step 2: Run it on your computer
 You need Python 3.10 or newer (GitHub uses 3.12). On Windows, tick "Add python.exe to PATH" when installing it.
 ```bash
-cd events-agent
+cd ilmu-finder
 python -m venv .venv
 ```
 On macOS, type `python3` instead of `python` for this one command. Then activate the environment:
@@ -160,14 +160,14 @@ python -m agent.main
 ```
 
 ### Step 3: Put it on GitHub
-1. Create a **private** repo, e.g. `events-agent`.
+1. Create a **private** repo, e.g. `ilmu-finder`.
 2. Upload everything **except** `.env` (`.gitignore` already excludes it). Make sure the `.github/workflows/` folder is uploaded.
 3. Command-line option:
 ```bash
 git init && git add . && git commit -m "Events agent v2"
 ```
 ```bash
-git branch -M main && git remote add origin https://github.com/<you>/events-agent.git && git push -u origin main
+git branch -M main && git remote add origin https://github.com/<you>/ilmu-finder.git && git push -u origin main
 ```
 
 ### Step 4: Secrets and variables
@@ -176,9 +176,10 @@ Go to the repo, then **Settings**, then **Secrets and variables**, then **Action
 - **E-mail (optional)**: `SMTP_USER` (your Gmail address), `SMTP_PASSWORD` (a Gmail **App Password**, not your normal password: Google Account, then Security, then 2-Step Verification, then App passwords), `EMAIL_TO` (where to send). Leave these out for Telegram only. Leave out the Telegram secrets for e-mail only. The workflow sends e-mail through Gmail (`smtp.gmail.com`).
 
 ### Step 5: First run
-Open **Actions**, choose **Weekly events digest**, then **Run workflow**. Tick "Print only" for a dry run. Open the run log and the `digest-N` artifact to check the results, then run it again without the tick. After that it runs **every Friday** on its own.
+Open **Actions**, choose **Ilmu Finder weekly digest**, then **Run workflow**. Tick "Print only" for a dry run. Open the run log and the `digest-N` artifact to check the results, then run it again without the tick. After that it runs **every Friday** on its own.
 
 To change the day, edit the cron line in `.github/workflows/digest.yml`. The times are UTC, which is Malaysia time minus 8 hours.
+- Friday ~10 PM (current): `45 13 * * 5`. It starts 9:45 PM so the digest arrives about 10 PM.
 - Friday 8 AM: `0 0 * * 5`
 - Saturday 8 AM: `0 0 * * 6`
 - Thursday 9 PM, so you can plan the weekend the night before: `0 13 * * 4`
