@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------
+# Klang Valley Islamic Events Agent - settings
+# Edit this file to change what the agent looks for.
+# Secrets (API keys) do NOT go here. They go in .env / GitHub Secrets.
+# The weekly GitHub run uses the values below (the .env overrides work only on your computer).
+# ---------------------------------------------------------------
+
+timezone: "Asia/Kuala_Lumpur"
+window_days: 30          # look this many days ahead ("next month")
+this_week_days: 7        # events starting within this many days go in "This week"
+include_online: true     # show online-only events in their own section
+
+# Places used in search queries. Keep this list modest: each place costs
+# 2 search credits per run (one English and one Malay query).
+places:
+  - Kuala Lumpur
+  - Shah Alam
+  - Petaling Jaya
+  - Putrajaya
+  - Bangi
+  - Kajang
+  - Cyberjaya
+  - Klang
+  - Subang Jaya
+  - Gombak
+  - Cheras
+  - Ampang
+
+# Query templates. Placeholders:
+#   {place}  a place from the list above
+#   {months} English month names in the window, e.g. "November December"
+#   {bulan}  Malay month names, e.g. "November Disember"
+#   {year}   year(s) in the window, e.g. "2026" or "2026 2027"
+place_queries:
+  - "Islamic talk OR seminar {place} {months} {year}"
+  - "ceramah OR kuliah OR forum {place} {bulan} {year}"
+
+general_queries:
+  - "Islamic conference Kuala Lumpur {months} {year}"
+  - "Islamic summit Malaysia {year} Kuala Lumpur"
+  - "seminar Islam Selangor {bulan} {year}"
+  - "konvensyen OR multaqa OR wacana Islam {bulan} {year} Kuala Lumpur"
+  - "daurah OR majlis ilmu {bulan} {year} Selangor"
+  - "masjid program ceramah {bulan} {year} Kuala Lumpur"
+  - "site:peatix.com Islamic Kuala Lumpur {year}"
+  - "site:eventbrite.com.my Islamic Kuala Lumpur {year}"
+  - "IKIM seminar {bulan} {year}"
+  - "Islamic finance conference Kuala Lumpur {months} {year}"
+
+search:
+  depth: "basic"          # basic = 1 credit, advanced = 2 credits
+  max_results: 8          # results per query
+  time_range: "year"      # day | week | month | year | null (no filter)
+  max_queries: 45         # hard cap per run (free plan: ~1,000 credits/month)
+  time_budget_minutes: 8  # stop searching after this (with the AI's 15 min, stays under the 30-min job limit)
+
+# Pages fetched directly every run (no search credit used).
+# Public Telegram channels work well: use the https://t.me/s/<channel> form.
+# Add the mosques, organisations and speakers you actually follow.
+direct_sources: []
+#  - "https://t.me/s/YOUR_MOSQUE_CHANNEL"
+#  - "https://www.ikim.gov.my/"
+
+# Highlight events where any of these names appear in the speaker list.
+speaker_watchlist: []
+#  - "Speaker Name One"
+#  - "Speaker Name Two"
+
+llm:
+  base_url: "https://api.groq.com/openai/v1"   # any OpenAI-compatible endpoint
+  model: "llama-3.3-70b-versatile"
+  fallback_model: "llama-3.1-8b-instant"       # used when the main model's daily quota runs out
+  delay_seconds: 8                              # pause between calls (per-minute limits)
+  max_pages: 30                                 # pages the AI reads per run
+  max_chars_per_page: 6000                      # ~1,500 tokens; keeps you under daily token limits
+  max_output_tokens: 4000                       # room for up to 10 events per page in the reply
+  time_budget_minutes: 15                       # stop AI calls after this, so the digest is always sent
+  temperature: 0
+
+delivery:
+  telegram_cards: true    # true: one card per event with Register / Details / Add-to-calendar / Maps buttons
+                          # false: overview list only (shorter, fewer messages)
+
+cache_days: 35            # forget cached AI extractions older than this
