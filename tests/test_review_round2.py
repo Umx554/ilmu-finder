@@ -63,7 +63,7 @@ def test_bad_key_stops_ai_immediately(client):
 def test_413_retries_with_smaller_output(client):
     client.use(FakeResp(413, {"error": {"message": "Request too large"}}), ok_reply())
     assert client.chat_json("s", "u") == {"events": []}
-    assert [b["max_tokens"] for b in client.sent] == [4000, 1500]
+    assert [b["max_tokens"] for b in client.sent] == [3000, 1500]
 
 
 def test_service_errors_are_not_cached(monkeypatch):
@@ -166,4 +166,25 @@ def test_fallback_none_disables(monkeypatch):
     monkeypatch.setenv("LLM_FALLBACK_MODEL", "none")
     assert load_config()["llm"]["fallback_model"] == ""
     monkeypatch.setenv("LLM_FALLBACK_MODEL", "")                        # unset GitHub variable -> config.yaml
-    assert load_config()["llm"]["fallback_model"] == "llama-3.1-8b-instant"
+    assert load_config()["llm"]["fallback_model"] == "openai/gpt-oss-20b"
+
+
+def test_unsupported_option_is_dropped_and_retried(client):
+    client.use(FakeResp(400, {"error": {"message": "`response_format` json_object is not supported with this model",
+                                        "type": "invalid_request_error"}}), ok_reply())
+    assert client.chat_json("s", "u") == {"events": []}
+    assert "response_format" in client.sent[0] and "response_format" not in client.sent[1]
+    assert client.sent[1]["reasoning_effort"] == "low"
+
+
+def test_retired_models_give_a_clear_message(client):
+    gone = {"error": {"message": "The model has been decommissioned", "code": "model_decommissioned"}}
+    client.use(FakeResp(400, gone), FakeResp(400, gone))
+    with pytest.raises(QuotaExhausted) as e:
+        client.chat_json("s", "u")
+    assert "retired" in str(e.value) and "llm.model" in str(e.value) and "daily quota" not in str(e.value)
+
+
+def test_shipped_config_uses_current_groq_models():
+    llm = load_config()["llm"]
+    assert not any("llama-3" in m for m in (llm["model"], llm["fallback_model"]))   # retired Aug 2026

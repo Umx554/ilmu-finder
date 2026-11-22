@@ -27,7 +27,7 @@ v1 was a sound design. These are the weaknesses I found, with the fix for each.
 
 | # | v1 weakness | Why it matters | v2 fix |
 |---|---|---|---|
-| 1 | **Token budget.** 40 pages × about 3k tokens = **about 120k tokens/run**. | The most-cited Groq free-tier limit for `llama-3.3-70b-versatile` is about **100k tokens/day** (unconfirmed, see §10). The weekly run would hit 429 errors partway through. | Pages are trimmed to their event-relevant lines (`max_chars_per_page: 6000`, about 1.5k tokens). The default is 30 pages. The run switches to `llama-3.1-8b-instant` automatically when the daily quota runs out. |
+| 1 | **Token budget.** 40 pages × about 3k tokens = **about 120k tokens/run**. | The most-cited Groq free-tier limit for `llama-3.3-70b-versatile` is about **100k tokens/day** (unconfirmed, see §10). The weekly run would hit 429 errors partway through. | Pages are trimmed to their event-relevant lines (`max_chars_per_page: 6000`, about 1.5k tokens). The default is 30 pages. The run switches to a fallback model automatically when the daily quota runs out. (Now `openai/gpt-oss-120b` → `gpt-oss-20b`, since Groq retired Llama 3.x in Aug 2026.) |
 | 2 | **One event per page.** | Listing pages (mosque schedules, Peatix, IKIM) hold many events, and v1 would keep only one. | The AI returns a list of events per page (up to 10). |
 | 3 | **Trusting the AI.** The "checker agent" was only an idea. | LLMs invent speakers and prices, and get dates wrong. | **Code-based grounding check.** The date quote must appear word for word in the page. Every speaker name must appear in the text, or it is shown as "unverified". Price digits must appear, or the price is removed. Failing checks lower the confidence level. This is cheaper and more reliable than a second AI call. |
 | 4 | **Re-reading the same pages every week.** | Wastes most of the AI quota. | **Extraction cache** (`state/extract_cache.json`), keyed by URL and a content hash. An unchanged page costs 0 tokens. |
@@ -206,13 +206,14 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | `search.time_range` | year | `null` to disable |
 | `direct_sources` | [] | URLs and `t.me/s/...` channels |
 | `speaker_watchlist` | [] | |
-| `llm.model` (`LLM_MODEL`) | llama-3.3-70b-versatile | |
-| `llm.fallback_model` (`LLM_FALLBACK_MODEL`) | llama-3.1-8b-instant | Used when the main model's daily quota runs out |
+| `llm.model` (`LLM_MODEL`) | openai/gpt-oss-120b | Groq retired the Llama 3.x models on 16 Aug 2026 |
+| `llm.fallback_model` (`LLM_FALLBACK_MODEL`) | openai/gpt-oss-20b | Used when the main model's daily quota runs out or it is retired |
+| `llm.reasoning_effort` | low | For reasoning models such as gpt-oss. Delete the line for other models |
 | `llm.base_url` (`LLM_BASE_URL`) | Groq | Any OpenAI-compatible endpoint |
-| `llm.delay_seconds` (`LLM_DELAY`) | 8 | Raise it if you get many 429s |
-| `llm.max_pages` (`MAX_PAGES`) | 30 | New pages read by the AI per run |
+| `llm.delay_seconds` (`LLM_DELAY`) | 25 | Raise it if you get many 429s |
+| `llm.max_pages` (`MAX_PAGES`) | 25 | New pages read by the AI per run |
 | `llm.max_chars_per_page` (`MAX_CHARS_PER_PAGE`) | 6000 | The main lever on token use |
-| `llm.max_output_tokens` | 4000 | Room for up to 10 events per page |
+| `llm.max_output_tokens` | 3000 | Room for up to 10 events per page |
 | `llm.time_budget_minutes` | 15 | Stops AI calls after this, so the digest always gets sent |
 | `search.time_budget_minutes` | 8 | Stops searching after this (search + AI stay under the 30-min job limit) |
 | `delivery.telegram_cards` | true | `false` = overview list only (fewer messages) |
@@ -231,7 +232,7 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | Resource | Usage per weekly run | Free allowance (as reported Nov 2026) | Headroom |
 |---|---|---|---|
 | Tavily | 34 basic searches by default (cap 45) = 34 credits (≈148/month, at most ≈195) | 1,000 credits/month | About 5× |
-| Groq tokens | ≤30 pages × ~2.5k = ≤75k, much less once the cache fills | ~100k TPD (70B), with an automatic fallback to the 8B model | OK |
+| Groq tokens (gpt-oss-120b) | ≤25 pages × ~3k = ≤75k per run, much less once the cache fills; paced at ~2 pages/minute | Reported free tier (Nov 2026): ~8k tokens/minute, ~200k/day, with an automatic fallback to gpt-oss-20b | OK |
 | GitHub Actions | ~5–10 min (private repo) | 2,000 min/month on private repos | Large |
 | Telegram / Gmail | About 30 messages or 1 e-mail per week | Far below limits | OK |
 
@@ -261,6 +262,7 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 | E-mail fails with an auth error | Use a Gmail App Password, not your normal password |
 | First-run problems | Run `python -m agent.doctor`. It names the broken key or setting and the fix. |
 | A query never runs any more | It is resting after 3 empty runs. It is retried about every 4 weeks, or delete `state/query_stats.json`. |
+| "0 read by AI" and `no AI model available – …: model retired or not found` | Groq has retired that model. Pick a current one at console.groq.com/docs/models, put it in `llm.model` in `config.yaml`, and commit. `python -m agent.doctor` checks the names for you. |
 | `AI limit reached (AI key rejected (HTTP 401) …)` | `LLM_API_KEY` is wrong or revoked. Create a new key at console.groq.com, update the secret, and run the Doctor. |
 | `AI limit reached (time budget for AI calls used up)` | Rate limits were slow this week. Raise `llm.time_budget_minutes` (keep it under the job's 30-minute timeout) or lower `llm.max_pages`. |
 | State not saved | The repo must allow workflow write access: Settings, Actions, General, Workflow permissions, "Read and write" |
@@ -277,6 +279,7 @@ The env vars are handy for testing on your computer (in `.env`). For the weekly 
 
 ## 10. Sources checked for this guide
 - Tavily credits and parameters: https://docs.tavily.com/documentation/api-credits · https://docs.tavily.com/documentation/api-reference/endpoint/search
-- Groq rate limits (official, verify there): https://console.groq.com/docs/rate-limits. Third-party summaries disagree (12k vs 6k TPM).
+- Groq rate limits (official, verify there): https://console.groq.com/docs/rate-limits. Third-party summaries disagree.
+- Groq model deprecations (Llama 3.x retired 16 Aug 2026): https://console.groq.com/docs/deprecations
 - GitHub scheduled-workflow inactivity rule: https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows
 - Telegram Bot API (inline URL buttons, message limits): https://core.telegram.org/bots/api

@@ -160,7 +160,7 @@ class World:
     def llm(self, req):
         if not self.llm_429_sent:                        # first call hits the per-minute limit once
             self.llm_429_sent = True
-            return groq_error(429, "Rate limit reached for model `llama-3.3-70b-versatile` on tokens per minute "
+            return groq_error(429, "Rate limit reached for model `openai/gpt-oss-120b` on tokens per minute "
                                    "(TPM): Limit 12000, Used 11500, Requested 1700. Please try again in 1.2s.",
                               code="rate_limit_exceeded", etype="tokens", headers={"retry-after": "2"})
         body = req.json()

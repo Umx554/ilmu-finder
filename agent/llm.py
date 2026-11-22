@@ -73,6 +73,11 @@ class LLMClient:
         self.delay = float(c["delay_seconds"])
         self.temperature = c.get("temperature", 0)
         self.max_tokens = int(c.get("max_output_tokens", 4000))
+        # Optional extras; dropped automatically if a provider/model rejects them.
+        self.extras = {"response_format": {"type": "json_object"}}
+        if c.get("reasoning_effort"):
+            self.extras["reasoning_effort"] = c["reasoning_effort"]   # gpt-oss / reasoning models on Groq
+        self.dropped: list[str] = []
         self.key = cfg["secrets"]["llm"]
         self.session = requests.Session()
         self._last_call = 0.0
@@ -100,9 +105,10 @@ class LLMClient:
 
     def _drop_model(self, why: str):
         dead = self.models.pop(0)
+        self.dropped.append(f"{dead}: {why}")
         log.warning("%s on %s; switching to %s", why, dead, self.models[0] if self.models else "none")
         if not self.models:
-            raise QuotaExhausted(f"daily quota used up for all AI models, last was {dead}")
+            raise QuotaExhausted("no AI model available – " + "; ".join(self.dropped))
 
     def chat_json(self, system: str, user: str, max_tokens: int | None = None) -> dict:
         """Send one request and return parsed JSON. Handles 429s, 5xx, model fallback."""
@@ -117,7 +123,7 @@ class LLMClient:
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
                 "temperature": self.temperature,
                 "max_tokens": max_tokens or self.max_tokens,
-                "response_format": {"type": "json_object"},
+                **self.extras,
             }
             try:
                 r = self.session.post(f"{self.base_url}/chat/completions", json=body, timeout=90,
@@ -129,7 +135,7 @@ class LLMClient:
 
             if r.status_code == 429:
                 if DAILY_LIMIT_RE.search(_error(r).get("message", "") or r.text):
-                    self._drop_model("daily quota hit")
+                    self._drop_model("daily quota used up")
                     continue
                 if attempts >= 6:
                     raise ServiceError("still rate limited after 6 attempts")
@@ -144,8 +150,17 @@ class LLMClient:
                 log.info("413 request too large; retrying with max_tokens=1500")
                 continue
             if r.status_code in (400, 404) and _error(r).get("code") in MODEL_GONE_CODES:
-                self._drop_model(f"model rejected ({_error(r).get('code')})")
+                self._drop_model("model retired or not found – change llm.model in config.yaml "
+                                 "(see console.groq.com/docs/models)")
                 continue
+            if r.status_code == 400:
+                msg = (_error(r).get("message") or "").lower()
+                rejected = [k for k in self.extras if k in msg]
+                if rejected:                    # e.g. a model without JSON mode: retry without that option
+                    for k in rejected:
+                        log.info("model rejected option %s; retrying without it", k)
+                        self.extras.pop(k)
+                    continue
             if r.status_code >= 500:
                 log.info("server error %s, retrying", r.status_code)
                 self._sleep(15)

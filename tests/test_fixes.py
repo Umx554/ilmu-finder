@@ -32,7 +32,7 @@ from agent.prefilter import focus_text, month_hit, prefilter, score_page  # noqa
 from agent.validate import coerce, ground, validate  # noqa: E402
 
 TODAY, END = date(2026, 11, 23), date(2026, 12, 23)
-MAIN, FALLBACK = "llama-3.3-70b-versatile", "llama-3.1-8b-instant"
+MAIN, FALLBACK = "openai/gpt-oss-120b", "openai/gpt-oss-20b"
 EVENTS = {"events": [{"title": "Kuliah", "start_date": "2026-11-27"}]}
 
 

@@ -51,7 +51,7 @@ def cfg():
 
 GOOD = {
     "api.tavily.com": Resp(200, {"results": []}),
-    "/models": Resp(200, {"data": [{"id": "llama-3.3-70b-versatile"}, {"id": "llama-3.1-8b-instant"}]}),
+    "/models": Resp(200, {"data": [{"id": "openai/gpt-oss-120b"}, {"id": "openai/gpt-oss-20b"}]}),
     "/getMe": Resp(200, {"ok": True, "result": {"username": "my_events_bot"}}),
     "/sendChatAction": Resp(200, {"ok": True}),
     "/sendMessage": Resp(200, {"ok": True}),
@@ -181,7 +181,7 @@ def test_llm_rejected_key(cfg, monkeypatch):
 
 
 def test_llm_model_missing_warns(cfg, monkeypatch):
-    net(monkeypatch, __models=Resp(200, {"data": [{"id": "llama-3.3-70b-versatile"}]}))
+    net(monkeypatch, __models=Resp(200, {"data": [{"id": "openai/gpt-oss-120b"}]}))
     res = doctor.check_llm(cfg, False)
     assert by_title(res, "AI model")[0].status == OK
     fb = by_title(res, "AI fallback model")[0]

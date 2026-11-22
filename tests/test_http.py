@@ -31,7 +31,7 @@ from agent.prefilter import focus_text, prefilter  # noqa: E402
 from agent.validate import coerce  # noqa: E402
 
 TODAY, END = date(2026, 11, 23), date(2026, 12, 23)
-MAIN, FALLBACK = "llama-3.3-70b-versatile", "llama-3.1-8b-instant"
+MAIN, FALLBACK = "openai/gpt-oss-120b", "openai/gpt-oss-20b"
 TOKEN, CHAT = "123456789:AAFake-Token_x", "987654321"
 
 
@@ -272,7 +272,7 @@ def models_used(server):
 
 
 EVENTS = {"events": [{"title": "Kuliah Maghrib", "start_date": "2026-11-27"}]}
-TPM_429 = ("Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01abc` service tier "
+TPM_429 = ("Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01abc` service tier "
            "`on_demand` on tokens per minute (TPM): Limit 12000, Used 11021, Requested 1689. Please try again in "
            "3.55s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing")
 TPD_429 = ("Rate limit reached for model `{m}` in organization `org_01abc` service tier `on_demand` on tokens per "
@@ -289,7 +289,7 @@ def test_llm_success_request_shape_and_token_count(server, llm_cfg, sleeps):
     req = server.requests[0]
     assert req.path == "/openai/v1/chat/completions"           # trailing slash in base URL handled
     assert req.headers["authorization"] == "Bearer gsk_test"
-    assert req.json() == {"model": MAIN, "temperature": 0, "max_tokens": 4000,
+    assert req.json() == {"model": MAIN, "temperature": 0, "max_tokens": 3000, "reasoning_effort": "low",
                           "response_format": {"type": "json_object"},
                           "messages": [{"role": "system", "content": "SYSTEM PROMPT"},
                                        {"role": "user", "content": "PAGE TEXT"}]}
@@ -342,7 +342,7 @@ def test_llm_tpd_429_switches_to_fallback_model(server, llm_cfg, sleeps, caplog)
     assert models_used(server) == [MAIN, FALLBACK]
     assert sleeps == []                                          # no point waiting 14 minutes: switch at once
     assert c.model == FALLBACK
-    assert f"daily quota hit on {MAIN}; switching to {FALLBACK}" in caplog.text
+    assert f"daily quota used up on {MAIN}; switching to {FALLBACK}" in caplog.text
     c.chat_json("s", "u")                                        # later pages stay on the fallback model
     assert models_used(server) == [MAIN, FALLBACK, FALLBACK]
 
