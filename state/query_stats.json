@@ -1,178 +1,178 @@
 {
  "ceramah or kuliah or forum ampang": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum bangi": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum cheras": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum cyberjaya": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum gombak": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum kajang": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum klang": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 2
  },
  "ceramah or kuliah or forum petaling jaya": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum putrajaya": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
-  "last_yield_date": null,
-  "runs": 1,
-  "total_events": 0
+  "consecutive_zero_runs": 0,
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 1
  },
  "ceramah or kuliah or forum shah alam": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "ceramah or kuliah or forum subang jaya": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "daurah or majlis ilmu selangor": {
-  "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-27",
   "last_yield_date": "2026-11-22",
-  "runs": 1,
+  "runs": 2,
   "total_events": 1
  },
  "ikim seminar": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
-  "last_yield_date": null,
-  "runs": 1,
-  "total_events": 0
+  "consecutive_zero_runs": 0,
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 1
  },
  "islamic conference kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 6
  },
  "islamic finance conference kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 3
  },
  "islamic summit malaysia kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 3
  },
  "islamic talk or seminar ampang": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "islamic talk or seminar bangi": {
-  "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-27",
   "last_yield_date": "2026-11-22",
-  "runs": 1,
+  "runs": 2,
   "total_events": 1
  },
  "islamic talk or seminar cheras": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
-  "last_yield_date": null,
-  "runs": 1,
-  "total_events": 0
+  "consecutive_zero_runs": 0,
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 1
  },
  "islamic talk or seminar cyberjaya": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 5
  },
  "islamic talk or seminar gombak": {
-  "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-27",
   "last_yield_date": "2026-11-22",
-  "runs": 1,
+  "runs": 2,
   "total_events": 1
  },
  "islamic talk or seminar kajang": {
-  "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-27",
   "last_yield_date": "2026-11-22",
-  "runs": 1,
+  "runs": 2,
   "total_events": 1
  },
  "islamic talk or seminar klang": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 2
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 3
  },
  "islamic talk or seminar kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 3
  },
  "islamic talk or seminar petaling jaya": {
   "consecutive_zero_runs": 1,
@@ -182,32 +182,32 @@
   "total_events": 0
  },
  "islamic talk or seminar putrajaya": {
-  "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 1,
+  "last_run": "2026-11-27",
   "last_yield_date": "2026-11-22",
-  "runs": 1,
+  "runs": 2,
   "total_events": 1
  },
  "islamic talk or seminar shah alam": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 3
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 5
  },
  "islamic talk or seminar subang jaya": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 2
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 3
  },
  "konvensyen or multaqa or wacana islam kuala lumpur": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 1
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 2
  },
  "masjid program ceramah kuala lumpur": {
   "consecutive_zero_runs": 1,
@@ -218,23 +218,23 @@
  },
  "seminar islam selangor": {
   "consecutive_zero_runs": 0,
-  "last_run": "2026-11-22",
-  "last_yield_date": "2026-11-22",
-  "runs": 1,
-  "total_events": 2
+  "last_run": "2026-11-27",
+  "last_yield_date": "2026-11-27",
+  "runs": 2,
+  "total_events": 4
  },
  "site:eventbrite.com.my islamic kuala lumpur": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  },
  "site:peatix.com islamic kuala lumpur": {
-  "consecutive_zero_runs": 1,
-  "last_run": "2026-11-22",
+  "consecutive_zero_runs": 2,
+  "last_run": "2026-11-27",
   "last_yield_date": null,
-  "runs": 1,
+  "runs": 2,
   "total_events": 0
  }
 }

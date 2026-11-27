@@ -1,22 +1,39 @@
 {
+ "allconferencealert.com": {
+  "events": 1,
+  "first_seen": "2026-11-27",
+  "ids": [
+   "3afccd08f6a3"
+  ],
+  "last_seen": "2026-11-27"
+ },
  "allconferencealert.net": {
   "events": 1,
   "first_seen": "2026-11-22",
   "ids": [
    "560bd218d55a"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-27"
+ },
+ "conferenceinmalaysia.com": {
+  "events": 1,
+  "first_seen": "2026-11-27",
+  "ids": [
+   "f1d0213157c7"
+  ],
+  "last_seen": "2026-11-27"
  },
  "easychair.org": {
-  "events": 1,
+  "events": 2,
   "first_seen": "2026-11-22",
   "ids": [
-   "bf334afa9b78"
+   "bf334afa9b78",
+   "1ae352590ab7"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-27"
  },
  "facebook.com": {
-  "events": 7,
+  "events": 10,
   "first_seen": "2026-11-22",
   "ids": [
    "8a0c2a0f49d7",
@@ -25,12 +42,15 @@
    "64b20372a3e9",
    "411efac93f36",
    "c24dde69dab9",
-   "ad7549745846"
+   "ad7549745846",
+   "b5033c9be61c",
+   "97a6359dfc23",
+   "770a9b3c5982"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-27"
  },
  "instagram.com": {
-  "events": 7,
+  "events": 11,
   "first_seen": "2026-11-22",
   "ids": [
    "c785eec31430",
@@ -39,9 +59,21 @@
    "38acd6a57069",
    "2d17d1fec21f",
    "8e21aa08d2a2",
-   "fc126b87b0f9"
+   "fc126b87b0f9",
+   "3d7f452adce5",
+   "caf8077bb21b",
+   "1e6cdc6ca8f6",
+   "9c67023917cf"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-27"
+ },
+ "islamicft.com": {
+  "events": 1,
+  "first_seen": "2026-11-27",
+  "ids": [
+   "2501f363aad8"
+  ],
+  "last_seen": "2026-11-27"
  },
  "selangorbar.org": {
   "events": 1,
@@ -52,11 +84,12 @@
   "last_seen": "2026-11-22"
  },
  "threads.com": {
-  "events": 1,
+  "events": 2,
   "first_seen": "2026-11-22",
   "ids": [
-   "8cc1b1868218"
+   "8cc1b1868218",
+   "c19d4fb0079d"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-27"
  }
 }
